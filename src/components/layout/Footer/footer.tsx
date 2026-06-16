@@ -1,11 +1,11 @@
+import { ngo_name } from "../../../constant/constants";
+
 const Footer = () => (
   <footer className="bg-gray-900 text-gray-300 py-12">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
         <div>
-          <h4 className="text-white font-bold text-lg mb-4">
-            Ganga Social Foundation
-          </h4>
+          <h4 className="text-white font-bold text-lg mb-4">{ngo_name}</h4>
           <p className="text-sm leading-relaxed">
             Working towards a brighter future for underprivileged children
             through education and holistic development.
@@ -80,8 +80,8 @@ const Footer = () => (
       </div>
       <div className="border-t border-gray-800 pt-8 text-center text-sm">
         <p>
-          © 2026 Ganga Social Foundation. All rights reserved. Registered under
-          Societies Registration Act XXI of 1860.
+          © 2026 {ngo_name}. All rights reserved. Registered under Societies
+          Registration Act XXI of 1860.
         </p>
       </div>
     </div>

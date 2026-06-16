@@ -15,13 +15,15 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 
-export const logo = "/assets/GangaSocialFoundationLogo.webp";
+export const logo = "/assets/logo.png";
+
+export const ngo_name = "Bright Futures Foundatio";
 export const navItems: NavItem[] = [
   { title: "Home", href: "/" },
   {
     title: "About Us",
     children: [
-      { title: "About Ganga", href: "/aboutus" },
+      { title: "About Bright", href: "/aboutus" },
       {
         title: "Profile of NGO",
         href: "/profile",
@@ -30,39 +32,39 @@ export const navItems: NavItem[] = [
         title: "Vision & Mission",
         href: "/vision-mission",
       },
-      {
-        title: "Chairman's speak",
-        href: "/chairman",
-      },
+      // {
+      //   title: "Chairman's speak",
+      //   href: "/chairman",
+      // },
       {
         title: "Our Partners",
         href: "/our-partners",
       },
-      {
-        title: "Intervention",
-        href: "/intervention",
-      },
-      {
-        title: "Join with us",
-        href: "/joinwithus",
-      },
-      {
-        title: "FCRA Details",
-        href: "/fcra",
-      },
-      {
-        title: "Annual Reports",
-        href: "/annual-reports",
-      },
+      // {
+      //   title: "Intervention",
+      //   href: "/intervention",
+      // },
+      // {
+      //   title: "Join with us",
+      //   href: "/joinwithus",
+      // },
+      // {
+      //   title: "FCRA Details",
+      //   href: "/fcra",
+      // },
+      // {
+      //   title: "Annual Reports",
+      //   href: "/annual-reports",
+      // },
     ],
   },
   { title: "Projects", href: "/projects" },
-  { title: "Media", href: "/media" },
+  // { title: "Media", href: "/media" },
   { title: "Gallery", href: "/gallery" },
-  { title: "Enquiry", href: "/enquiry" },
+  // { title: "Enquiry", href: "/enquiry" },
   { title: "Contact Us", href: "/contact-us" },
-  { title: "Latest News", href: "/latest-news" },
-  { title: "Live Stream", href: "/live-stream" },
+  // { title: "Latest News", href: "/latest-news" },
+  // { title: "Live Stream", href: "/live-stream" },
 ];
 
 export const slides: Slide[] = [
@@ -74,9 +76,9 @@ export const slides: Slide[] = [
 
 export const HomeAbout = {
   paragraphs: [
-    "Ganga Social Foundation, a voluntary organization established in 2003, works towards improving the lives of marginalized communities across multiple sectors including health, education, and livelihood.",
+    "Bright Futures Foundation is a non-profit organization dedicated to empowering underprivileged communities through education, healthcare, skill development, and social welfare initiatives.",
 
-    "Founded by professionals from diverse backgrounds such as academicians, lawyers, and social activists, the organization focuses on sustainable development and long-term social impact through structured programs and grassroots initiatives.",
+    "Established with a vision to create sustainable social impact, the foundation works closely with volunteers, educators, healthcare professionals, and community leaders to improve lives and build a brighter future for all.",
   ],
   ctaText: "read more >",
   ctaLink: "/about",
