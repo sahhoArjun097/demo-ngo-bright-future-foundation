@@ -1,6 +1,20 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, type LucideIcon } from "lucide-react";
+type VisionMissionData = {
+  icon: LucideIcon;
+  label: string;
+  title: string;
+  highlight: string;
+  description: string;
+  points: string[];
+  image: string;
+  imageAlt: string;
+};
 
-export const VisionMissionCard = ({ data }: any) => {
+type VisionMissionCardProps = {
+  data: VisionMissionData;
+};
+
+export const VisionMissionCard = ({ data }: VisionMissionCardProps) => {
   const Icon = data.icon;
 
   return (

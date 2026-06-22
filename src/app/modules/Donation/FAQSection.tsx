@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FAQS } from "../../../constant/constants";
 
 const FAQSection = () => {
-  const [openIdx, setOpenIdx] = useState(null);
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
     <section className="py-20 bg-gray-50">
