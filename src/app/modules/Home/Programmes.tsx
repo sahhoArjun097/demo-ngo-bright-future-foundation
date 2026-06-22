@@ -4,7 +4,7 @@ import { ArrowUpRight, Sparkles } from "lucide-react";
 import { programs } from "../../../constant/constants";
 
 const Programmes = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState(0);
 
   return (
     <section className="w-full bg-slate-50 py-24 px-5 sm:px-10 lg:px-20 relative overflow-hidden">
@@ -45,7 +45,7 @@ const Programmes = () => {
                 ${index === 3 ? "lg:col-span-2" : ""}
               `}
               onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              onMouseLeave={() => setHoveredIndex(0)}
             >
               <Link to={item.link} className="block h-full">
                 <div
