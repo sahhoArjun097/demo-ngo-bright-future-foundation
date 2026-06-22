@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import QRCode from "qrcode";
+import { DONATION_AMOUNTS } from "../../../constant/constants";
 
 const DonationCard = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
@@ -23,15 +24,14 @@ const DonationCard = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [copied, setCopied] = useState(false);
   const [qrDataUrl, setQrDataUrl] = useState("");
-
   const upiId = import.meta.env.VITE_UPI_ID;
-
   const generateQR = async (amount: number) => {
     const upiUrl = `upi://pay?pa=${upiId}&pn=Ganga%20Social%20Foundation&am=${amount}&cu=INR&tn=Donation`;
 
     try {
       const dataUrl = await QRCode.toDataURL(upiUrl, {
         width: 200,
+
         margin: 2,
         color: {
           dark: "#000000",
@@ -43,6 +43,11 @@ const DonationCard = () => {
       console.error("QR generation failed:", error);
     }
   };
+  useEffect(() => {
+    if (selectedAmount === 0 && customAmount && customAmount > 0) {
+      generateQR(customAmount);
+    }
+  }, [customAmount, selectedAmount]);
 
   const handleAmountClick = (amount: number) => {
     setSelectedAmount(amount);
@@ -66,21 +71,6 @@ const DonationCard = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
-  useEffect(() => {
-    if (selectedAmount === 0 && customAmount && customAmount > 0) {
-      generateQR(customAmount);
-    }
-  }, [customAmount, selectedAmount]);
-
-  const DONATION_AMOUNTS = [
-    { amount: 500, label: "Supplies", impact: "Books for 2 kids" },
-    { amount: 1000, label: "Nutrition", impact: "Meals for 1 month" },
-    { amount: 2500, label: "School Kit", impact: "Kit for 5 kids" },
-    { amount: 5000, label: "Sponsor", impact: "1 year education" },
-    { amount: 10000, label: "Classroom", impact: "Digital tools" },
-    { amount: 0, label: "Custom", impact: "Any amount helps", isCustom: true },
-  ];
 
   const displayAmount =
     selectedAmount === 0 ? customAmount || "0" : selectedAmount || "0";
@@ -146,8 +136,6 @@ const DonationCard = () => {
                 Monthly
               </button>
             </div>
-
-            {/* Amount Grid */}
             <div className="grid grid-cols-3 gap-2.5 mb-5">
               {DONATION_AMOUNTS.map((item, idx) => (
                 <button
@@ -178,27 +166,6 @@ const DonationCard = () => {
               ))}
             </div>
 
-            {/* Custom Input */}
-            {selectedAmount === 0 && (
-              <div className="mb-5">
-                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                  Enter Amount (₹)
-                </label>
-                <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-base font-bold text-gray-400">
-                    ₹
-                  </span>
-                  <input
-                    type="number"
-                    value={customAmount}
-                    onChange={(e) => setCustomAmount(e.target.value)}
-                    placeholder="0"
-                    className="w-full pl-8 pr-3 py-2.5 rounded-xl border-2 border-gray-200 focus:border-indigo-600 outline-none text-base font-bold text-gray-900 placeholder:text-gray-300 bg-gray-50 focus:bg-white transition-all"
-                  />
-                </div>
-              </div>
-            )}
-
             {/* Impact */}
             {selectedAmount !== null && (
               <div className="mb-5 bg-emerald-50 rounded-xl p-3 border border-emerald-100">
@@ -224,7 +191,6 @@ const DonationCard = () => {
               </div>
             )}
 
-            {/* Security */}
             <div className="flex items-center justify-center gap-1.5 text-[10px] text-gray-400 pt-3 border-t border-gray-100">
               <Lock className="w-3 h-3" />
               <span>Secure payment • Instant tax receipt</span>
@@ -238,9 +204,7 @@ const DonationCard = () => {
               transform: "rotateY(180deg)",
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-violet-950 to-slate-900" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(139,92,246,0.15),_transparent_50%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(99,102,241,0.1),_transparent_50%)]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary via-violet-600 to-primary" />
 
             <div className="absolute inset-0 backdrop-blur-[1px] bg-white/[0.02]" />
 
@@ -337,8 +301,6 @@ const DonationCard = () => {
                     </button>
                   </div>
                 </div>
-
-                {/* Action Buttons */}
                 <div className="flex gap-3">
                   <button
                     onClick={handleDownloadQR}
@@ -353,7 +315,6 @@ const DonationCard = () => {
                   </button>
                 </div>
 
-                {/* UPI Apps */}
                 <div className="flex justify-center gap-2">
                   {["GPay", "PhonePe", "Paytm", "Any UPI"].map((app) => (
                     <div
@@ -365,7 +326,6 @@ const DonationCard = () => {
                   ))}
                 </div>
 
-                {/* Security Footer */}
                 <div className="text-center pt-1">
                   <p className="text-[10px] text-white/25 flex items-center justify-center gap-1.5 font-medium">
                     <Shield className="w-3 h-3" />

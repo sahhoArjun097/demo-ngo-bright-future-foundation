@@ -55,7 +55,7 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(57.765% 0.181 24.814);
+    --primary: oklch(80.036% 0.17161 123.223);
     --primary-foreground: oklch(100% 0.00011 271.152);
     --w:oklch(100% 0.00011 271.152);
     --secondary: oklch(0.97 0 0);
@@ -144,4 +144,18 @@
 
 .rotate-y-180 {
   transform: rotateY(180deg);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
 }

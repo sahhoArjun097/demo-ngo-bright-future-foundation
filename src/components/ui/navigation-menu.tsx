@@ -43,15 +43,19 @@ const NavItemComponent = ({
       onMouseLeave={handleMouseLeave}
     >
       <div
-        className={`flex items-center gap-1 cursor-pointer hover:text-indigo-400 ${children}`}
+        className={`flex items-center gap-1 cursor-pointer hover:text-primary ${children}`}
         onClick={handleClick}
       >
         {item.href && !hasChildren ? (
-          <Link to={item.href} className="text-xl">
+          <Link
+            to={item.href}
+            className="text-md
+          "
+          >
             {item.title}
           </Link>
         ) : (
-          <span className="text-xl">{item.title}</span>
+          <span className="text-md">{item.title}</span>
         )}
 
         {hasChildren &&
@@ -61,11 +65,7 @@ const NavItemComponent = ({
       {hasChildren && open && (
         <ul className="absolute top-full left-0 mt-2 w-64 bg-white border rounded-xl shadow-lg z-50">
           {item.children!.map((child, idx) => (
-            <NavItemComponent
-              key={idx}
-              item={child}
-              children="p-4 border-b hover:bg-gray-100"
-            />
+            <NavItemComponent key={idx} item={child} children="p-4 border-b " />
           ))}
         </ul>
       )}

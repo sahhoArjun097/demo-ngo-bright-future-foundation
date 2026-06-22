@@ -29,8 +29,8 @@ const NavBar = () => {
         </ul>
 
         <div className="hidden md:block shrink-0">
-          <button className="hover:brightness-110 transition-all duration-300 font-semibold py-3 px-6 rounded-full bg-gradient-to-r from-orange-400 to-red-500 text-white shadow-lg">
-            <Link to="/donation">Donations</Link>
+          <button className="hover:brightness-110 transition-all duration-300 font-semibold py-3 px-6 rounded-full bg-primary text-white shadow-lg">
+            <Link to="/donation">Support A Cause</Link>
           </button>
         </div>
 
@@ -54,7 +54,7 @@ const NavBar = () => {
           ))}
 
           <button className="mt-4 w-full hover:brightness-110 transition-all duration-300 font-semibold py-3 px-6 rounded-full bg-gradient-to-r from-orange-400 to-red-500 text-white shadow-lg">
-            <Link to="/donation">Donations</Link>
+            <Link to="/donation">Support A Cause</Link>
           </button>
         </ul>
       </div>

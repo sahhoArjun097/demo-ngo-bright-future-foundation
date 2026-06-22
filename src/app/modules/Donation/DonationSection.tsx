@@ -24,7 +24,7 @@ const DonationSection = () => (
 
           <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-6 border border-indigo-100">
             <div className="flex items-center gap-3 mb-3">
-              <div className="bg-indigo-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+              <div className="bg-primary text-white px-3 py-1 rounded-full text-sm font-bold">
                 {TAX_INFO.badge}
               </div>
             </div>
@@ -38,15 +38,15 @@ const DonationSection = () => (
             <h3 className="text-lg font-bold text-gray-900">Contact Us</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-gray-600">
-                <Mail className="w-5 h-5 text-indigo-600" />
+                <Mail className="w-5 h-5 text-primary" />
                 <span>{CONTACT_INFO.email}</span>
               </div>
               <div className="flex items-center gap-3 text-gray-600">
-                <Phone className="w-5 h-5 text-indigo-600" />
+                <Phone className="w-5 h-5 text-primary" />
                 <span>{CONTACT_INFO.phone}</span>
               </div>
               <div className="flex items-center gap-3 text-gray-600">
-                <MapPin className="w-5 h-5 text-indigo-600" />
+                <MapPin className="w-5 h-5 text-primary" />
                 <span>{CONTACT_INFO.address}</span>
               </div>
             </div>

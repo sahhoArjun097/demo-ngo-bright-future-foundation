@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Compressor</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:800px;margin:40px auto;padding:20px}
+.card{border:1px solid #ddd;padding:20px;border-radius:12px}
+input,button{margin:10px 0}
+img{max-width:100%;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Image Compressor (MB → KB)</h2>
+<input type="file" id="file" accept="image/*"><br>
+<label>Quality: <span id="qv">70</span>%</label><br>
+<input type="range" id="quality" min="10" max="100" value="70"><br>
+<button onclick="compressImage()">Compress</button>
+
+<p id="info"></p>
+<a id="download" style="display:none">Download Compressed Image</a>
+<br>
+<img id="preview">
+</div>
+
+<script>
+const qualitySlider = document.getElementById("quality");
+qualitySlider.oninput = () => {
+  document.getElementById("qv").textContent = qualitySlider.value;
+};
+
+function formatBytes(bytes){
+  return bytes > 1024*1024
+    ? (bytes/(1024*1024)).toFixed(2)+" MB"
+    : (bytes/1024).toFixed(2)+" KB";
+}
+
+function compressImage(){
+  const file = document.getElementById("file").files[0];
+  if(!file) return alert("Select an image");
+
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img,0,0);
+
+      const quality = Number(qualitySlider.value)/100;
+
+      canvas.toBlob(blob => {
+        const url = URL.createObjectURL(blob);
+
+        document.getElementById("preview").src = url;
+        document.getElementById("info").innerHTML =
+          `Original: ${formatBytes(file.size)}<br>
+           Compressed: ${formatBytes(blob.size)}`;
+
+        const a = document.getElementById("download");
+        a.href = url;
+        a.download = "compressed.jpg";
+        a.style.display = "inline-block";
+        a.textContent = "Download Compressed Image";
+      }, "image/jpeg", quality);
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+</script>
+</body>
+</html>

@@ -1,31 +1,5 @@
-import { BookOpen, Home, Stethoscope, Users } from "lucide-react";
+import { IMPACT_AREAS } from "../../../constant/constants";
 
-const IMPACT_AREAS = [
-  {
-    icon: BookOpen,
-    title: "Primary Education",
-    description: "Quality schooling for children aged 6-14 years",
-    color: "bg-blue-500",
-  },
-  {
-    icon: Stethoscope,
-    title: "Health & Nutrition",
-    description: "Regular health checkups and nutritious meals",
-    color: "bg-green-500",
-  },
-  {
-    icon: Users,
-    title: "Teacher Training",
-    description: "Professional development for educators",
-    color: "bg-purple-500",
-  },
-  {
-    icon: Home,
-    title: "Infrastructure",
-    description: "Building classrooms and learning spaces",
-    color: "bg-orange-500",
-  },
-];
 const ImpactSection = () => (
   <section id="impact" className="py-20 bg-gray-50">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
