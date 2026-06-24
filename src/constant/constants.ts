@@ -175,8 +175,8 @@ export const SOCIAL_LINKS = [
 ];
 
 export const CONTACT_INFO = {
-  email: "ganga_org@rediffmail.com",
-  phone: "+91-11-22580479",
+  email: "brightfuturefoundation@gmail.com",
+  phone: "+91-7302721902",
   hours: "Monday - Saturday, 10AM to 7PM (IST)",
   address: "New Delhi, India",
 };
