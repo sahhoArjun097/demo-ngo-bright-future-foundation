@@ -30,7 +30,7 @@ const HowWeWork = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 mb-1">
-                    j{area.title}
+                    {area.title}
                   </h3>
                   <p className="text-slate-500 text-sm leading-relaxed">
                     {area.desc}

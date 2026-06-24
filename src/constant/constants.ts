@@ -80,10 +80,11 @@ export const navItems: NavItem[] = [
 ];
 
 export const slides: Slide[] = [
-  { image: "/assets/I9.jpg" },
+  { image: "/assets/I11.jpg" },
   { image: "/assets/I6.jpeg" },
   { image: "/assets/I1.jpeg" },
-  { image: "/assets/I5.webp" },
+  { image: "/assets/I12.jpg" },
+  // { image: "/assets/I5.webp" },
 ];
 
 export const HomeAbout = {
