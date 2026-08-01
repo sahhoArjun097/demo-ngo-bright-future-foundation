@@ -1,26 +1,30 @@
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { FAQS } from "../../../constant/constants";
+import { FAQS, FAQSMain } from "../../../constant/constants";
+import { useLocation } from "react-router-dom";
 
 const FAQSection = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const { pathname } = useLocation();
+
+  const faqs = pathname === "/faqs" ? FAQSMain : FAQS;
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20  bg-gray-50">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
           Frequently Asked Questions
         </h2>
 
         <div className="space-y-4">
-          {FAQS.map((faq, idx) => (
+          {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl border border-gray-200 overflow-hidden"
+              className="bg-white rounded-2xl border  cursor-pointer border-gray-200 overflow-hidden"
             >
               <button
                 onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
-                className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                className="w-full px-6 py-5 text-left flex items-center cursor-pointer justify-between hover:bg-gray-50 transition-colors"
               >
                 <span className="font-semibold text-gray-900">
                   {faq.question}

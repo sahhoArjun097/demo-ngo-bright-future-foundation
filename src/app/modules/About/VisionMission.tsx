@@ -33,8 +33,6 @@ const VisionMission = () => {
             ))}
           </div>
         </div>
-
-        {/* Tab Content */}
         <div className="relative min-h-[500px]">
           <div
             className={`transition-all duration-500 ${activeTab === "vision" ? "opacity-100 translate-x-0" : "opacity-0 absolute inset-0 translate-x-8 pointer-events-none"}`}

@@ -126,8 +126,9 @@ const DonationCard = () => {
                 One-time
               </button>
               <button
+                disabled
                 onClick={() => setIsMonthly(true)}
-                className={`flex-1 py-2.5 rounded-lg text-xs font-semibold transition-all ${
+                className={`flex-1 py-2.5 rounded-lg text-xs font-semibold transition-all cursor-not-allowed ${
                   isMonthly
                     ? "bg-white text-gray-900 shadow-sm"
                     : "text-gray-500"

@@ -1,7 +1,7 @@
 import HeroSection from "./HeroSection";
 import DonationSection from "./DonationSection";
 import ImpactSection from "./ImpactSection";
-import FAQSection from "./FAQSection";
+import FAQSection from "../../../components/layout/Faqs/FAQSection";
 
 const Donation = () => {
   return (

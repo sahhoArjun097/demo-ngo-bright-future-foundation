@@ -29,13 +29,13 @@ import {
 
 export const logo = "/assets/logo.png";
 
-export const ngo_name = "Bright Futures Foundation";
+export const ngo_name = "Bright Future Foundation";
 export const navItems: NavItem[] = [
   { title: "Home", href: "/" },
   {
     title: "About Us",
     children: [
-      { title: "About Bright", href: "/aboutus" },
+      { title: "About Bright", href: "/about-us" },
       {
         title: "Profile of NGO",
         href: "/profile",
@@ -72,11 +72,6 @@ export const navItems: NavItem[] = [
   },
   { title: "Projects", href: "/projects" },
   { title: "Contact Us", href: "/contact-us" },
-  // { title: "Gallery", href: "/gallery" },
-  // { title: "Media", href: "/media" },
-  // { title: "Enquiry", href: "/enquiry" },
-  // { title: "Latest News", href: "/latest-news" },
-  // { title: "Live Stream", href: "/live-stream" },
 ];
 
 export const slides: Slide[] = [
@@ -84,7 +79,7 @@ export const slides: Slide[] = [
   { image: "/assets/I6.jpeg" },
   { image: "/assets/I1.jpeg" },
   { image: "/assets/I12.jpg" },
-  // { image: "/assets/I5.webp" },
+  { image: "/assets/I15.jpeg" },
 ];
 
 export const HomeAbout = {
@@ -173,9 +168,15 @@ export const SOCIAL_LINKS = [
   { icon: FaInstagram, label: "Instagram", href: "#" },
   { icon: FaLinkedin, label: "LinkedIn", href: "#" },
 ];
+export const SOCIAL_LINKS_PATH = {
+  Fhref: "",
+  Xhref: "",
+  Ihref: "",
+  Mhref: "",
+};
 
 export const CONTACT_INFO = {
-  email: "brightfuturefoundation@gmail.com",
+  email: "brightfuturefoundationcontact@gmail.com",
   phone: "+91-7302721902",
   hours: "Monday - Saturday, 10AM to 7PM (IST)",
   address: "New Delhi, India",
@@ -211,6 +212,56 @@ export const FAQS = [
   },
 ];
 
+export const FAQSMain = [
+  {
+    question: `What is ${ngo_name}?`,
+    answer: `${ngo_name} is a non-profit organization dedicated to improving the lives of underprivileged communities through education, healthcare, women empowerment, child welfare, environmental initiatives, and skill development programs.`,
+  },
+  {
+    question: `How can I donate to ${ngo_name}?`,
+    answer:
+      "You can donate securely through our website using UPI, debit/credit cards, net banking, or other available payment methods. Every contribution, regardless of the amount, helps us create a lasting impact.",
+  },
+  {
+    question: "Where does my donation go?",
+    answer:
+      "Your donations directly support our ongoing initiatives such as educational scholarships, medical assistance, food distribution, environmental campaigns, community development projects, and emergency relief programs.",
+  },
+  {
+    question: "Is my donation tax deductible?",
+    answer: `Yes. If ${ngo_name} is registered under the applicable sections of the Income Tax Act (such as 80G in India), eligible donations qualify for tax benefits. A donation receipt will be provided for your records.`,
+  },
+  {
+    question: "How can I volunteer?",
+    answer:
+      "We welcome passionate volunteers who wish to make a difference. Simply fill out the volunteer registration form on our website, and our team will reach out with available opportunities based on your interests and location.",
+  },
+  {
+    question: "Can I make a monthly recurring donation?",
+    answer:
+      "Yes. You can choose to support us with recurring monthly donations, helping us plan and sustain our long-term projects more effectively.",
+  },
+  {
+    question: "How do I know my contribution is making an impact?",
+    answer:
+      "We believe in complete transparency. We regularly share project updates, success stories, impact reports, photographs, and financial information to show how your support is changing lives.",
+  },
+  {
+    question: `Can organizations or companies partner with ${ngo_name}?`,
+    answer:
+      "Absolutely. We collaborate with businesses, educational institutions, corporate CSR teams, and community organizations to create meaningful social impact through partnerships and joint initiatives.",
+  },
+  {
+    question: "Can I donate items instead of money?",
+    answer:
+      "Yes. Depending on our current requirements, we accept donations such as books, clothes, school supplies, food, medical equipment, and other essential items. Please contact us before making an in-kind donation.",
+  },
+  {
+    question: `How can I contact ${ngo_name}?`,
+    answer:
+      "You can reach us through our Contact Us page, email, or phone number listed on the website. Our team will be happy to answer your questions and assist you with donations, volunteering, or partnership opportunities.",
+  },
+];
 export const partners = [
   { name: "Suzlon", logo: "assets/suzlon.webp" },
   { name: "Aditya Birla", logo: "assets/adityabirla.webp" },
@@ -252,6 +303,11 @@ export const heroImages = [
     alt: "Volunteer work",
     caption: "Volunteer Network",
   },
+  {
+    src: "/assets/I16.jpeg",
+    alt: "Volunteer work",
+    caption: "Volunteer Network",
+  },
 ];
 
 export const IMPACT_AREAS = [
@@ -282,18 +338,28 @@ export const IMPACT_AREAS = [
 ];
 
 export const quickLinks = [
-  { label: "About Us", href: "#about" },
+  { label: "About Us", href: "/about-us" },
   { label: "Our Programs", href: "#programs" },
   { label: "Success Stories", href: "#stories" },
   { label: "Annual Reports", href: "#reports" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contactus" },
 ];
 
 export const legalLinks = [
   { label: "Privacy Policy", href: "#privacy" },
   { label: "Terms of Use", href: "#terms" },
-  { label: "80G Certificate", href: "#certificate" },
+  { label: "Faqs", href: "/faqs" },
+  // { label: "80G Certificate", href: "#certificate" },
 ];
+
+export const Address = {
+  address: {
+    established: " Registered NGO · Est. 2003",
+    location: "123 Charity Lane, New Delhi, India 110001",
+    phoneNo: "+91-7302721902",
+    email: "brigthfuturefoundationcontact@gmail.com",
+  },
+};
 
 export const ABOUT_CONTENT = {
   hero: {
@@ -315,17 +381,18 @@ export const ABOUT_CONTENT = {
     title: "How It All",
     highlight: "Began",
     paragraphs: [
-      `${ngo_name}, a voluntary organization, came into existence in 2003 (registered under Societies Registration Act XXI of 1860). It was established by a group of people representing diverse social and professional communities — Academicians, Lawyers, Social Activists, and Management Professionals.`,
+      `${ngo_name},is a non-profit organization dedicated to empowering underprivileged communities through education, healthcare, skill development, and social welfare initiatives. It was established by a group of people representing diverse social and professional communities — Academicians, Lawyers, Social Activists, and Management Professionals.`,
       `This organization was born with the vision of working towards the overall development of the marginalized section of society in all spheres. It is this understanding which prompted us to focus our attention on areas of Health & Hygiene, Environment, Livelihood, Elementary Education, and HIV/AIDS awareness.`,
       `${ngo_name} has evolved robust management systems and data analysis frameworks for its projects. Our volunteers bring experience in both field-level execution and technical managerial skills for project implementation.`,
     ],
     quote: {
       text: "Every act of kindness, no matter how small, creates a ripple of change that transforms communities.",
       author: "Founding Members",
-      role: "Ganga Social Foundation",
+      role: `${ngo_name}`,
     },
     image: "/assets/about-story.jpg",
     imageAlt: "Our journey beginning",
+    href: "/vision-mission",
   },
 
   vision: {
@@ -339,7 +406,7 @@ export const ABOUT_CONTENT = {
       "Sustainable solutions for long-term social impact",
       "Inclusive growth reaching the last mile",
     ],
-    image: "/assets/about-vision.jpg",
+    image: "/assets/I17.jpg",
     imageAlt: "Our vision for the future",
     icon: Eye,
     color: "emerald",
@@ -357,7 +424,7 @@ export const ABOUT_CONTENT = {
       "Protect environment while ensuring sustainable livelihoods",
       "Combat HIV/AIDS through awareness, prevention, and care",
     ],
-    image: "/assets/about-mission.jpg",
+    image: "/assets/I20.jpeg",
     imageAlt: "Our mission in action",
     icon: Target,
     color: "teal",
