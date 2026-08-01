@@ -570,3 +570,36 @@ export const ABOUT_CONTENT = {
     buttonSecondary: "Volunteer With Us",
   },
 };
+
+export const offices = [
+  {
+    city: "New Delhi",
+    address: "123 Charity Lane, Connaught Place, New Delhi, 110001",
+    phone: "+91 11 2345 6789",
+    email: "delhi@ngoname.org",
+    hours: "Mon - Sat: 9:00 AM - 6:00 PM",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.8!2d77.209!3d28.6139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM2JzUwLjEiTiA3N8KwMTInMzIuNCJF!5e0!3m2!1sen!2sin!4v1",
+    coordinates: { lat: 28.6139, lng: 77.209 },
+  },
+  {
+    city: "Mumbai",
+    address: "456 Hope Street, Bandra West, Mumbai, 400050",
+    phone: "+91 22 3456 7890",
+    email: "mumbai@ngoname.org",
+    hours: "Mon - Sat: 9:30 AM - 6:30 PM",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.8!2d72.82!3d19.076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA0JzMzLjYiTiA3MsKwNDknMTIuMCJF!5e0!3m2!1sen!2sin!4v1",
+    coordinates: { lat: 19.076, lng: 72.82 },
+  },
+  {
+    city: "Bangalore",
+    address: "789 Impact Road, Koramangala, Bangalore, 560034",
+    phone: "+91 80 4567 8901",
+    email: "bangalore@ngoname.org",
+    hours: "Mon - Sat: 9:00 AM - 5:30 PM",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8!2d77.62!3d12.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzEyLjAiTiA3N8KwMzcnMTIuMCJF!5e0!3m2!1sen!2sin!4v1",
+    coordinates: { lat: 12.97, lng: 77.62 },
+  },
+];

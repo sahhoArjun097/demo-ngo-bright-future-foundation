@@ -11,40 +11,9 @@ import {
   Send,
   User,
 } from "lucide-react";
-import { useRef, useState } from "react";
+import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import { offices } from "../../../constant/constants";
 
-const offices = [
-  {
-    city: "New Delhi",
-    address: "123 Charity Lane, Connaught Place, New Delhi, 110001",
-    phone: "+91 11 2345 6789",
-    email: "delhi@ngoname.org",
-    hours: "Mon - Sat: 9:00 AM - 6:00 PM",
-    mapUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.8!2d77.209!3d28.6139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM2JzUwLjEiTiA3N8KwMTInMzIuNCJF!5e0!3m2!1sen!2sin!4v1",
-    coordinates: { lat: 28.6139, lng: 77.209 },
-  },
-  {
-    city: "Mumbai",
-    address: "456 Hope Street, Bandra West, Mumbai, 400050",
-    phone: "+91 22 3456 7890",
-    email: "mumbai@ngoname.org",
-    hours: "Mon - Sat: 9:30 AM - 6:30 PM",
-    mapUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.8!2d72.82!3d19.076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA0JzMzLjYiTiA3MsKwNDknMTIuMCJF!5e0!3m2!1sen!2sin!4v1",
-    coordinates: { lat: 19.076, lng: 72.82 },
-  },
-  {
-    city: "Bangalore",
-    address: "789 Impact Road, Koramangala, Bangalore, 560034",
-    phone: "+91 80 4567 8901",
-    email: "bangalore@ngoname.org",
-    hours: "Mon - Sat: 9:00 AM - 5:30 PM",
-    mapUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8!2d77.62!3d12.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzEyLjAiTiA3N8KwMzcnMTIuMCJF!5e0!3m2!1sen!2sin!4v1",
-    coordinates: { lat: 12.97, lng: 77.62 },
-  },
-];
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -60,12 +29,14 @@ const ContactForm = () => {
   const [activeOffice, setActiveOffice] = useState(0);
   const formRef = useRef(null);
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -74,7 +45,7 @@ const ContactForm = () => {
       // Example: await emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formRef.current, 'YOUR_PUBLIC_KEY');
       setSubmitStatus("success");
       setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-    } catch (error) {
+    } catch {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -143,7 +114,7 @@ const ContactForm = () => {
                     <select
                       name="subject"
                       value={formData.subject}
-                      onChange={handleChange}
+                      onChange={() => handleChange}
                       required
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-3.5 text-slate-800 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/10 transition-all appearance-none cursor-pointer"
                     >
