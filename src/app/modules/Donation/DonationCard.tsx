@@ -19,12 +19,13 @@ import { DONATION_AMOUNTS } from "../../../constant/constants";
 
 const DonationCard = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
-  const [customAmount, setCustomAmount] = useState<number | "">("");
+  const [customAmount, setCustomAmount] = useState<number | "">(0);
   const [isMonthly, setIsMonthly] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
   const [copied, setCopied] = useState(false);
   const [qrDataUrl, setQrDataUrl] = useState("");
   const upiId = import.meta.env.VITE_UPI_ID;
+
   const generateQR = async (amount: number) => {
     const upiUrl = `upi://pay?pa=${upiId}&pn=Ganga%20Social%20Foundation&am=${amount}&cu=INR&tn=Donation`;
 
@@ -51,7 +52,7 @@ const DonationCard = () => {
 
   const handleAmountClick = (amount: number) => {
     setSelectedAmount(amount);
-    if (amount !== 0) setCustomAmount("");
+    if (amount !== 0) setCustomAmount(0);
     const finalAmt = amount === 0 ? 0 : amount;
     generateQR(finalAmt);
     setTimeout(() => setIsFlipped(true), 300);
