@@ -29,49 +29,43 @@ import {
 
 export const logo = "/assets/logo.png";
 
+export const nav_links = {
+  about_us: "/about-us",
+  profile: "/profile",
+  project: "/project",
+  contact_us: "/contact-us",
+  vision_mission: "/vision-mission",
+  donation: "/donation",
+  faqs: "/faqs",
+  privacy_policy: "/privacy-policy",
+  terms_conditions: "/term-conditions",
+};
+
+export const legalLinks = [
+  { label: "Privacy Policy", href: `${nav_links.privacy_policy}` },
+  { label: "Terms and Condition", href: `${nav_links.terms_conditions}` },
+  { label: "Faqs", href: `${nav_links.faqs}` },
+  // { label: "80G Certificate", href: "#certificate" },
+];
 export const ngo_name = "Bright Future Foundation";
 export const navItems: NavItem[] = [
   { title: "Home", href: "/" },
   {
     title: "About Us",
     children: [
-      { title: "About Bright", href: "/about-us" },
+      { title: "About Bright", href: `${nav_links.about_us}` },
       {
         title: "Profile of NGO",
-        href: "/profile",
+        href: `${nav_links.profile}`,
       },
       {
         title: "Vision & Mission",
-        href: "/vision-mission",
+        href: `${nav_links.vision_mission}`,
       },
-      // {
-      //   title: "Chairman's speak",
-      //   href: "/chairman",
-      // },
-      // {
-      //   title: "Our Partners",
-      //   href: "/our-partners",
-      // },
-      // {
-      //   title: "Intervention",
-      //   href: "/intervention",
-      // },
-      // {
-      //   title: "Join with us",
-      //   href: "/joinwithus",
-      // },
-      // {
-      //   title: "FCRA Details",
-      //   href: "/fcra",
-      // },
-      // {
-      //   title: "Annual Reports",
-      //   href: "/annual-reports",
-      // },
     ],
   },
-  { title: "Projects", href: "/projects" },
-  { title: "Contact Us", href: "/contact-us" },
+  { title: "Projects", href: `${nav_links.project}` },
+  { title: "Contact Us", href: `${nav_links.contact_us}` },
 ];
 
 export const slides: Slide[] = [
@@ -89,7 +83,7 @@ export const HomeAbout = {
     "Established with a vision to create sustainable social impact, the foundation works closely with volunteers, educators, healthcare professionals, and community leaders to improve lives and build a brighter future for all.",
   ],
   ctaText: "read more >",
-  ctaLink: "/aboutus",
+  ctaLink: `${nav_links.about_us}`,
 };
 
 export const programs = [
@@ -338,18 +332,11 @@ export const IMPACT_AREAS = [
 ];
 
 export const quickLinks = [
-  { label: "About Us", href: "/about-us" },
+  { label: "About Us", href: `${nav_links.about_us}` },
   { label: "Our Programs", href: "#programs" },
   { label: "Success Stories", href: "#stories" },
   { label: "Annual Reports", href: "#reports" },
   { label: "Contact", href: "/contactus" },
-];
-
-export const legalLinks = [
-  { label: "Privacy Policy", href: "#privacy" },
-  { label: "Terms of Use", href: "#terms" },
-  { label: "Faqs", href: "/faqs" },
-  // { label: "80G Certificate", href: "#certificate" },
 ];
 
 export const Address = {
@@ -381,7 +368,7 @@ export const ABOUT_CONTENT = {
     title: "How It All",
     highlight: "Began",
     paragraphs: [
-      `${ngo_name},is a non-profit organization dedicated to empowering underprivileged communities through education, healthcare, skill development, and social welfare initiatives. It was established by a group of people representing diverse social and professional communities — Academicians, Lawyers, Social Activists, and Management Professionals.`,
+      `${ngo_name} , is a non-profit organization dedicated to empowering underprivileged communities through education, healthcare, skill development, and social welfare initiatives. It was established by a group of people representing diverse social and professional communities — Academicians, Lawyers, Social Activists, and Management Professionals.`,
       `This organization was born with the vision of working towards the overall development of the marginalized section of society in all spheres. It is this understanding which prompted us to focus our attention on areas of Health & Hygiene, Environment, Livelihood, Elementary Education, and HIV/AIDS awareness.`,
       `${ngo_name} has evolved robust management systems and data analysis frameworks for its projects. Our volunteers bring experience in both field-level execution and technical managerial skills for project implementation.`,
     ],
@@ -603,3 +590,201 @@ export const offices = [
     coordinates: { lat: 12.97, lng: 77.62 },
   },
 ];
+
+export const privacyPolicydummy = {
+  title: "Privacy Policy",
+  lastUpdated: "August 3, 2026",
+
+  introduction: [
+    `Welcome to ${ngo_name}. We value your privacy and are committed to protecting any information you choose to share while using this website. This Privacy Policy explains how information is collected, used, stored, and protected.`,
+
+    `Important Notice: ${ngo_name} is a fictional organization created solely for educational and software development purposes. This website does not represent an officially registered NGO or charitable institution. Any references to donations, volunteers, campaigns, beneficiaries, or events are provided only as sample content.`,
+  ],
+
+  sections: [
+    {
+      id: 1,
+      title: "Information We Collect",
+      description:
+        "We may collect information that you voluntarily provide, including your name, email address, phone number, and any details submitted through contact forms or other interactive features available on this website.",
+    },
+
+    {
+      id: 2,
+      title: "How We Use Your Information",
+      description:
+        "Information submitted through this website may be used to improve user experience, respond to inquiries, evaluate website functionality, and enhance application performance. No personal information is sold or intentionally shared with third parties.",
+    },
+
+    {
+      id: 3,
+      title: "Cookies",
+      description:
+        "This website may use cookies or similar technologies to remember preferences, improve functionality, maintain user sessions, and enhance the browsing experience.",
+    },
+
+    {
+      id: 4,
+      title: "Third-Party Services",
+      description:
+        "The website may integrate services such as Google Maps, Google Places API, analytics providers, authentication services, or other third-party tools. These services operate according to their own privacy policies.",
+    },
+
+    {
+      id: 5,
+      title: "Data Security",
+      description:
+        "Reasonable measures are taken to protect information processed through this website. However, no internet-based system can guarantee absolute security, and users should avoid submitting confidential or sensitive information.",
+    },
+
+    {
+      id: 6,
+      title: "Children's Privacy",
+      description:
+        "This website is not intended for children under the age of 13, and we do not knowingly collect personal information from minors.",
+    },
+
+    {
+      id: 7,
+      title: "Images, Content & Copyright",
+      description:
+        "Certain images, illustrations, icons, and other visual assets displayed on this website may belong to their respective copyright owners or originate from publicly available sources. They are used solely for illustrative purposes. No ownership is claimed over third-party intellectual property unless explicitly stated.",
+    },
+
+    {
+      id: 8,
+      title: "Your Rights",
+      description:
+        "You may request correction or deletion of information you have voluntarily submitted through this website by contacting the website owner where applicable.",
+    },
+
+    {
+      id: 9,
+      title: "Policy Changes",
+      description:
+        "This Privacy Policy may be updated periodically to reflect changes in website functionality or legal requirements. Continued use of the website constitutes acceptance of the updated policy.",
+    },
+
+    {
+      id: 10,
+      title: "Contact",
+      description:
+        "If you have any questions regarding this Privacy Policy, please contact the website administrator using the contact information provided on the website.",
+    },
+  ],
+
+  importantNotice: [
+    `${ngo_name} is a fictional organization and is not an officially registered NGO or charitable institution.`,
+    "The website has been created for educational, design, and software development purposes.",
+    "Any donation forms, campaigns, volunteer registrations, or similar features are non-operational and included only to represent application functionality.",
+    "Images, logos, and other media may belong to their respective copyright owners.",
+    "If you own any copyrighted material displayed on this website and would like it removed, please contact the website owner.",
+    "No content from this website may be reproduced, distributed, or used for promotional, fundraising, or commercial purposes without appropriate permission.",
+  ],
+};
+
+export const termsAndConditionsdummy = {
+  title: "Terms & Conditions",
+  lastUpdated: "August 3, 2026",
+
+  introduction: [
+    `Welcome to ${ngo_name}. By accessing or using this website, you agree to comply with these Terms & Conditions. Please read them carefully before using any part of the website.`,
+
+    `${ngo_name} is a fictional organization created for educational, software development, and design purposes. This website does not represent an officially registered NGO, charitable trust, or non-profit organization. Any campaigns, donations, volunteer registrations, events, or similar features displayed on this website are included solely for illustrative purposes.`,
+  ],
+
+  sections: [
+    {
+      id: 1,
+      title: "Acceptance of Terms",
+      description:
+        "By accessing this website, you acknowledge that you have read, understood, and agreed to be bound by these Terms & Conditions. If you do not agree with any part of these terms, you should discontinue using the website.",
+    },
+
+    {
+      id: 2,
+      title: "Use of the Website",
+      description:
+        "You agree to use this website only for lawful purposes and in a manner that does not infringe upon the rights of others or restrict their ability to use and enjoy the website.",
+    },
+
+    {
+      id: 3,
+      title: "User Responsibilities",
+      description:
+        "Users are responsible for ensuring that any information submitted through the website is accurate and does not violate any applicable laws or the rights of third parties.",
+    },
+
+    {
+      id: 4,
+      title: "Intellectual Property",
+      description:
+        "Unless otherwise stated, the website's design, layout, source code, and original content are protected by applicable intellectual property laws. Third-party trademarks, logos, images, and other copyrighted materials remain the property of their respective owners.",
+    },
+
+    {
+      id: 5,
+      title: "Images & Third-Party Content",
+      description:
+        "Certain images, illustrations, icons, and other visual assets used on this website may originate from publicly available sources or belong to their respective copyright owners. They are included solely for illustrative purposes. No ownership is claimed unless explicitly stated.",
+    },
+
+    {
+      id: 6,
+      title: "Prohibited Activities",
+      description:
+        "Users must not misuse the website, attempt unauthorized access, interfere with website operations, distribute malicious software, or use the content for unlawful, fraudulent, promotional, or misleading purposes.",
+    },
+
+    {
+      id: 7,
+      title: "External Links",
+      description:
+        "This website may contain links to third-party websites or services. We are not responsible for the content, availability, or privacy practices of external websites.",
+    },
+
+    {
+      id: 8,
+      title: "Disclaimer of Warranties",
+      description:
+        "The website and its content are provided on an 'as is' and 'as available' basis without warranties of any kind, either express or implied. We do not guarantee that the website will always be available, secure, accurate, or free from errors.",
+    },
+
+    {
+      id: 9,
+      title: "Limitation of Liability",
+      description:
+        "To the fullest extent permitted by law, the creators of this website shall not be liable for any direct, indirect, incidental, consequential, or special damages resulting from the use of or inability to use this website.",
+    },
+
+    {
+      id: 10,
+      title: "Termination",
+      description:
+        "We reserve the right to restrict, suspend, or terminate access to the website at any time without prior notice if these Terms & Conditions are violated.",
+    },
+
+    {
+      id: 11,
+      title: "Changes to the Terms",
+      description:
+        "These Terms & Conditions may be updated periodically. Continued use of the website after any modifications constitutes acceptance of the revised terms.",
+    },
+
+    {
+      id: 12,
+      title: "Contact",
+      description:
+        "For questions regarding these Terms & Conditions, please contact the website administrator using the contact information available on the website.",
+    },
+  ],
+
+  importantNotice: [
+    `${ngo_name} is a fictional organization and is not an officially registered NGO or charitable institution.`,
+    "This website has been created for educational, design, and software development purposes only.",
+    "Any donation pages, campaigns, volunteer registrations, beneficiary information, or event details are illustrative and do not represent real-world charitable activities.",
+    "Images, logos, icons, and other media may belong to their respective copyright owners and are used solely for illustrative purposes.",
+    "No content from this website may be copied, reproduced, distributed, modified, or used for commercial, promotional, fundraising, or public representation without appropriate permission from the respective copyright owner.",
+    "If you believe any material displayed on this website infringes your intellectual property rights, please contact the website owner so appropriate action can be taken.",
+  ],
+};

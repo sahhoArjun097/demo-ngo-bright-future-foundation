@@ -7,7 +7,7 @@ const Programmes = () => {
   const [hoveredIndex, setHoveredIndex] = useState(0);
 
   return (
-    <section className="w-full bg-slate-50 py-24 px-5 sm:px-10 lg:px-20 relative overflow-hidden">
+    <section className="w-full bg-white py-24 px-5 sm:px-10 lg:px-20 relative overflow-hidden">
       <div className="relative text-center mb-20">
         <div className="inline-flex items-center gap-2 bg-white border border-primary px-4 py-1.5 rounded-full text-sm font-medium text-primary mb-6 shadow-sm">
           <Sparkles className="w-4 h-4 text-primary" />
