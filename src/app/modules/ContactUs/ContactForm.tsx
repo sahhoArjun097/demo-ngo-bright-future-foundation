@@ -6,12 +6,12 @@ import {
   Mail,
   MapPin,
   MessageSquare,
-  Navigation,
   Phone,
   Send,
   User,
 } from "lucide-react";
 import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import { offices } from "../../../constant/constants";
 
 const ContactForm = () => {
@@ -26,11 +26,11 @@ const ContactForm = () => {
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
     null,
   ); // 'success' | 'error' | null
-  const [activeOffice, setActiveOffice] = useState(0);
-  const formRef = useRef(null);
+  const [activeOffice] = useState(0);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -41,8 +41,13 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      // Example: await emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formRef.current, 'YOUR_PUBLIC_KEY');
+      if (!formRef.current) throw new Error("Form not found");
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY },
+      );
       setSubmitStatus("success");
       setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
     } catch {
@@ -114,7 +119,7 @@ const ContactForm = () => {
                     <select
                       name="subject"
                       value={formData.subject}
-                      onChange={() => handleChange}
+                      onChange={handleChange}
                       required
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-3.5 text-slate-800 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/10 transition-all appearance-none cursor-pointer"
                     >
@@ -186,23 +191,6 @@ const ContactForm = () => {
 
           {/* Map & Offices */}
           <div className="order-1 lg:order-2 space-y-6">
-            {/* Office Selector */}
-            <div className="bg-white rounded-2xl border border-slate-100 p-2 flex gap-1 overflow-x-auto">
-              {offices.map((office, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveOffice(index)}
-                  className={`flex-1 min-w-25 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 whitespace-nowrap ${
-                    activeOffice === index
-                      ? "bg-primary text-white shadow-lg shadow-primary/20"
-                      : "text-slate-500 hover:bg-slate-50 hover:text-slate-700"
-                  }`}
-                >
-                  {office.city}
-                </button>
-              ))}
-            </div>
-
             {/* Map Container */}
             <div className="relative bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-xl shadow-slate-200/50">
               <div className="relative aspect-4/3 bg-slate-100">
@@ -217,14 +205,6 @@ const ContactForm = () => {
                   title={`${offices[activeOffice].city} Office Location`}
                   className="grayscale-20 hover:grayscale-0 transition-all duration-500"
                 />
-
-                {/* Map Overlay Badge */}
-                <div className="absolute top-1 right-3 bg-white/90 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg border border-slate-100 flex items-center gap-2">
-                  <Navigation className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-semibold text-slate-700">
-                    {offices[activeOffice].city} Office
-                  </span>
-                </div>
 
                 {/* Open in Maps Button */}
                 <a

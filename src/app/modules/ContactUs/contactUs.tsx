@@ -1,9 +1,11 @@
+import ContactForm from "./ContactForm";
 import HeroSection from "./HeroSection";
 
 const ContactUs = () => {
   return (
     <section id="contact" className="relative bg-white overflow-hidden">
       <HeroSection />
+      <ContactForm />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div

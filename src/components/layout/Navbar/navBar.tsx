@@ -15,12 +15,7 @@ const NavBar = () => {
         </div>
 
         <ul
-          className="
-            hidden md:flex
-            flex-wrap
-            justify-center
-            gap-x-8 gap-y-3
-            flex-1
+          className=" hidden md:flex flex-wrap justify-center gap-x-8 gap-y-3 flex-1
           "
         >
           {navItems.map((item, index) => (

@@ -47,16 +47,12 @@ const Programmes = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(0)}
             >
-              <Link to={item.link} className="block h-full">
+              <Link
+                to={`${item.link}?category=${item.category}`}
+                className="block h-full"
+              >
                 <div
-                  className={` 
-                  relative h-full min-h-[280px]
-                  bg-white rounded-3xl overflow-hidden
-                  border border-slate-100
-                  transition-all duration-500 ease-out
-                  hover:shadow-2xl hover:shadow-emerald-900/5
-                  hover:border-primary
-                  hover:-translate-y-1
+                  className={`  relative h-full min-h-[280px] bg-white rounded-3xl overflow-hidden border border-slate-100 transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-emerald-900/5 hover:border-primary hover:-translate-y-1
                 `}
                 >
                   <div
@@ -66,22 +62,14 @@ const Programmes = () => {
                   <div className="p-8 h-full flex flex-col">
                     <div className="flex items-start justify-between mb-6 ">
                       <div
-                        className={`
-                        w-16 h-16 rounded-2xl flex items-center justify-center
-                        ${item.bg}
-                        transition-transform duration-500
-                        group-hover:scale-110 group-hover:rotate-3
+                        className={` w-16 h-16 rounded-2xl flex items-center justify-center ${item.bg} transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3
                       `}
                       >
                         <Icon className={`${item.color} w-8 h-8`} />
                       </div>
 
                       <div
-                        className={`
-                        w-10 h-10 rounded-full border border-slate-200  z-30
-                        flex items-center justify-center
-                        transition-all duration-300
-                        group-hover:bg-primary group-hover:border-primary
+                        className={` w-10 h-10 rounded-full border border-slate-200  z-30 flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:border-primary
                       `}
                       >
                         <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
@@ -90,10 +78,7 @@ const Programmes = () => {
 
                     <div className="flex-1 flex flex-col">
                       <h3
-                        className={`
-                        text-2xl font-bold uppercase tracking-wide mb-3
-                        transition-colors duration-300
-                        ${item.color}
+                        className={` text-2xl font-bold uppercase tracking-wide mb-3 transition-colors duration-300 ${item.color}
                       `}
                       >
                         {item.title}
@@ -108,10 +93,7 @@ const Programmes = () => {
                       0{index + 1}
                     </div>
                     <div
-                      className={`
-                      absolute bottom-0 left-0 h-1 bg-primary
-                      transition-all duration-700 ease-out
-                      ${isHovered ? "w-full" : "w-0"}
+                      className={` absolute bottom-0 left-0 h-1 bg-primary transition-all duration-700 ease-out ${isHovered ? "w-full" : "w-0"}
                     `}
                     />
                   </div>
