@@ -1,4 +1,13 @@
-import type { NavItem, Slide } from "./constants-types";
+import type {
+  NavItem,
+  Slide,
+  GalleryItem,
+  GalleryCategories,
+  EventItem,
+  EventCategories,
+  VolunteerBenefit,
+  VolunteerRole,
+} from "./constants-types";
 import {
   BookOpen,
   HeartPulse,
@@ -18,6 +27,10 @@ import {
   Lightbulb,
   Award,
   Heart,
+  GraduationCap,
+  Globe,
+  HeartHandshake,
+  Clock,
 } from "lucide-react";
 
 import {
@@ -36,6 +49,9 @@ export const nav_links = {
   contact_us: "/contact-us",
   vision_mission: "/vision-mission",
   donation: "/donation",
+  gallery: "/gallery",
+  events: "/events",
+  volunteer: "/volunteer",
   faqs: "/faqs",
   privacy_policy: "/privacy-policy",
   terms_conditions: "/term-conditions",
@@ -55,16 +71,21 @@ export const navItems: NavItem[] = [
     children: [
       { title: "About Bright", href: `${nav_links.about_us}` },
       {
+        title: "Vision & Mission",
+        href: `${nav_links.vision_mission}`,
+      },
+      {
         title: "Profile of NGO",
         href: `${nav_links.profile}`,
       },
       {
-        title: "Vision & Mission",
-        href: `${nav_links.vision_mission}`,
+        title: "Gallery",
+        href: `${nav_links.gallery}`,
       },
     ],
   },
-  { title: "Projects", href: `${nav_links.project}` },
+  { title: "Events", href: `${nav_links.events}` },
+  { title: "Volunteer", href: `${nav_links.volunteer}` },
   { title: "Contact Us", href: `${nav_links.contact_us}` },
 ];
 
@@ -93,14 +114,16 @@ export const programs = [
     description: "Education, nutrition and holistic development of children",
     icon: BookOpen,
     color: "text-yellow-500",
-    link: "/about",
+    link: nav_links.gallery,
+    category: "Education" as GalleryCategories,
     bg: "bg-yellow-100",
   },
   {
     title: "Healthcare",
     description:
       "Taking healthcare services to doorsteps of hard to reach communities",
-    link: "/about",
+    link: nav_links.gallery,
+    category: "Healthcare" as GalleryCategories,
     icon: HeartPulse,
     color: "text-purple-400",
     bg: "bg-purple-100",
@@ -109,7 +132,8 @@ export const programs = [
     title: "Women Empowerment",
     description:
       "Empowering adolescent girls & women through community engagement",
-    link: "/about",
+    link: nav_links.gallery,
+    category: "Empowerment" as GalleryCategories,
     icon: HandHelping,
     color: "text-cyan-400",
     bg: "bg-cyan-100",
@@ -119,13 +143,15 @@ export const programs = [
     description:
       "Skill training and placement support for underprivileged youth",
     icon: BriefcaseBusiness,
-    link: "/about",
+    link: nav_links.gallery,
+    category: "Empowerment" as GalleryCategories,
     color: "text-orange-300",
     bg: "bg-orange-100",
   },
   {
     title: "Empowering Grassroots",
-    link: "/about",
+    link: nav_links.gallery,
+    category: "Community" as GalleryCategories,
     description:
       "Helping community-based organizations become locally sustainable",
     icon: Trees,
@@ -136,7 +162,8 @@ export const programs = [
     title: "Disaster Response",
     description:
       "Reach out and respond to the needs of disaster-affected people",
-    link: "/about",
+    link: nav_links.gallery,
+    category: "Community" as GalleryCategories,
     icon: ShieldAlert,
     color: "text-red-400",
     bg: "bg-red-100",
@@ -265,6 +292,8 @@ export const partners = [
   { name: "Vedanta", logo: "assets/vedanta.webp" },
   { name: "Vedanta", logo: "assets/Mitsubishi_Electric.webp" },
   { name: "Vedanta", logo: "assets/habshifa.webp" },
+  { name: "HDFC", logo: "assets/hdfc.webp" },
+  { name: "Vedanta", logo: "assets/vedanta.webp" },
 ];
 
 export const DONATION_AMOUNTS = [
@@ -275,6 +304,270 @@ export const DONATION_AMOUNTS = [
   { amount: 10000, label: "Classroom", impact: "Digital tools" },
   { amount: 0, label: "Custom", impact: "Any amount helps", isCustom: true },
 ];
+
+export const EVENTS_CONTENT = {
+  hero: {
+    badge: "Our Events",
+    title: "Moments of",
+    highlight: "Impact & Togetherness",
+    subtitle:
+      "Explore the drives, camps and celebrations we have hosted to serve communities across India.",
+    stats: [
+      { value: "120+", label: "Events Hosted" },
+      { value: "25K+", label: "Lives Touched" },
+      { value: "10+", label: "States Covered" },
+    ],
+  },
+  categories: [
+    "All",
+    "Education",
+    "Healthcare",
+    "Community",
+    "Empowerment",
+    "Environment",
+  ] as EventCategories[],
+  filters: ["All", "Upcoming", "Completed"] as const,
+};
+
+export const events: EventItem[] = [
+  {
+    title: "Back to School Drive 2026",
+    date: "12 Oct 2026",
+    location: "New Delhi",
+    description:
+      "Distributed school kits, uniforms and books to 1,000+ underprivileged children ahead of the new academic year.",
+    image: "/assets/educationForAll.png",
+    category: "Education",
+    status: "Upcoming",
+    attendees: 1200,
+  },
+  {
+    title: "Free Health Checkup Camp",
+    date: "18 May 2026",
+    location: "Lucknow, UP",
+    description:
+      "Two-day camp offering free consultations, medicines and health screening for 800+ villagers.",
+    image: "/assets/healthInitiativecamp.png",
+    category: "Healthcare",
+    status: "Upcoming",
+    attendees: 850,
+  },
+  {
+    title: "Women Empowerment Workshop",
+    date: "02 Apr 2026",
+    location: "Jaipur, RJ",
+    description:
+      "Skill-building and awareness sessions for 300 women from Self Help Groups.",
+    image: "/assets/I12.jpg",
+    category: "Empowerment",
+    status: "Upcoming",
+    attendees: 300,
+  },
+  {
+    title: "Community Food Drive",
+    date: "21 Mar 2026",
+    location: "Kolkata, WB",
+    description:
+      "Mobile kitchen and ration distribution serving hot meals to 2,000+ families.",
+    image: "/assets/bulidingcommunity.png",
+    category: "Community",
+    status: "Completed",
+    attendees: 2000,
+  },
+  {
+    title: "Green Sapling Plantation",
+    date: "05 Feb 2026",
+    location: "Indore, MP",
+    description:
+      "Planted 5,000 saplings with 400 volunteers to restore urban green cover.",
+    image: "/assets/environment.webp",
+    category: "Environment",
+    status: "Completed",
+    attendees: 400,
+  },
+  {
+    title: "Scholarship Ceremony 2025",
+    date: "20 Nov 2025",
+    location: "New Delhi",
+    description:
+      "Felicitated 500 meritorious students with scholarships for higher education.",
+    image: "/assets/I6.jpeg",
+    category: "Education",
+    status: "Completed",
+    attendees: 600,
+  },
+  {
+    title: "Medical Camp & Eye Screening",
+    date: "12 Oct 2025",
+    location: "Patna, BR",
+    description:
+      "Specialised eye and general checkups for elderly residents + free spectacles.",
+    image: "/assets/I9.jpg",
+    category: "Healthcare",
+    status: "Completed",
+    attendees: 950,
+  },
+  {
+    title: "Youth Skill Mela",
+    date: "05 Sep 2025",
+    location: "Bhopal, MP",
+    description:
+      "Vocational training showcase connecting 250 youths with employers.",
+    image: "/assets/I13.jpg",
+    category: "Empowerment",
+    status: "Completed",
+    attendees: 250,
+  },
+  {
+    title: "Winter Blanket Donation",
+    date: "14 Jan 2026",
+    location: "Amritsar, PB",
+    description:
+      "650 blankets and warm clothing distributed to families in need.",
+    image: "/assets/volunteerWork.png",
+    category: "Community",
+    status: "Completed",
+    attendees: 650,
+  },
+  {
+    title: "Cleanliness & River Drive",
+    date: "28 Dec 2025",
+    location: "Haridwar, UK",
+    description:
+      "Community-led cleanliness drive along the ghats with 300 volunteers.",
+    image: "/assets/I5.webp",
+    category: "Environment",
+    status: "Completed",
+    attendees: 300,
+  },
+  {
+    title: "Nutrition Awareness Drive",
+    date: "16 Nov 2025",
+    location: "Varanasi, UP",
+    description:
+      "Workshops on balanced nutrition and hygiene for mothers and children.",
+    image: "/assets/healthInitiativecamp.png",
+    category: "Healthcare",
+    status: "Completed",
+    attendees: 500,
+  },
+  {
+    title: "Sports Day for Children",
+    date: "15 Aug 2025",
+    location: "New Delhi",
+    description:
+      "A fun-filled day of sports, games and prizes for 400 children.",
+    image: "/assets/I16.jpeg",
+    category: "Education",
+    status: "Completed",
+    attendees: 400,
+  },
+];
+
+export const VOLUNTEER_CONTENT = {
+  hero: {
+    badge: "Be Our Volunteer",
+    title: "Lend Your Time,",
+    highlight: "Change a Life",
+    subtitle:
+      "Join a growing community of changemakers who dedicate their skills and heart to serving underprivileged communities across India.",
+    stats: [
+      { value: "100+", label: "Active Volunteers" },
+      { value: "5K+", label: "Hours Contributed" },
+      { value: "10+", label: "Cities Covered" },
+    ],
+  },
+  benefits: [
+    {
+      icon: GraduationCap,
+      title: "Learning & Growth",
+      desc: "Gain hands-on field experience and professional skill-building opportunities.",
+    },
+    {
+      icon: HeartHandshake,
+      title: "Meaningful Impact",
+      desc: "Directly touch lives and witness the difference your effort makes.",
+    },
+    {
+      icon: Users,
+      title: "Community of Changemakers",
+      desc: "Connect with like-minded people, mentors and community leaders.",
+    },
+    {
+      icon: Award,
+      title: "Recognition",
+      desc: "Receive certificates of appreciation and references for your contribution.",
+    },
+    {
+      icon: Globe,
+      title: "Travel & Exposure",
+      desc: "Visit new places and communities while making a difference.",
+    },
+    {
+      icon: Clock,
+      title: "Flexible Hours",
+      desc: "Volunteer around your schedule with both weekend and weekday options.",
+    },
+  ] as VolunteerBenefit[],
+  roles: [
+    {
+      title: "Field Volunteer",
+      desc: "Support on-ground drives, camps and community programs.",
+      commitment: "4-8 hrs / week",
+    },
+    {
+      title: "Teaching Mentor",
+      desc: "Teach and mentor children in our education centers.",
+      commitment: "3-6 hrs / week",
+    },
+    {
+      title: "Health Ambassador",
+      desc: "Assist in health camps, awareness drives and screenings.",
+      commitment: "Weekends",
+    },
+    {
+      title: "Digital Volunteer",
+      desc: "Help with social media, design, content and online fundraising.",
+      commitment: "Remote",
+    },
+    {
+      title: "Fundraiser",
+      desc: "Organize campaigns and mobilize resources for our programs.",
+      commitment: "Flexible",
+    },
+    {
+      title: "Event Coordinator",
+      desc: "Help plan and run events, drives and celebrations.",
+      commitment: "Per event",
+    },
+  ] as VolunteerRole[],
+  interestAreas: [
+    "Education",
+    "Healthcare",
+    "Environment",
+    "Women Empowerment",
+    "Livelihood",
+    "Disaster Relief",
+  ],
+  faqs: [
+    {
+      q: "Do I need any prior experience to volunteer?",
+      a: "No. We provide orientation and guidance for every volunteer role.",
+    },
+    {
+      q: "Can students or professionals volunteer remotely?",
+      a: "Yes! Many roles like teaching, design and fundraising can be done remotely.",
+    },
+    {
+      q: "Is there a minimum time commitment?",
+      a: "We ask for a minimum of 4 hours per week, but flexible options exist.",
+    },
+    {
+      q: "Will I receive a certificate?",
+      a: "Yes, volunteers receive certificates of appreciation and references.",
+    },
+  ],
+};
 
 export const heroImages = [
   {
@@ -333,10 +626,10 @@ export const IMPACT_AREAS = [
 
 export const quickLinks = [
   { label: "About Us", href: `${nav_links.about_us}` },
-  { label: "Our Programs", href: "#programs" },
-  { label: "Success Stories", href: "#stories" },
-  { label: "Annual Reports", href: "#reports" },
-  { label: "Contact", href: "/contactus" },
+  { label: "Our Programs", href: "/programs" },
+  { label: "Success Stories", href: "/stories" },
+  { label: "Annual Reports", href: "/reports" },
+  { label: "Contact", href: "/contact-us" },
 ];
 
 export const Address = {
@@ -377,7 +670,7 @@ export const ABOUT_CONTENT = {
       author: "Founding Members",
       role: `${ngo_name}`,
     },
-    image: "/assets/about-story.jpg",
+    image: "/assets/team.avif",
     imageAlt: "Our journey beginning",
     href: "/vision-mission",
   },
@@ -411,7 +704,7 @@ export const ABOUT_CONTENT = {
       "Protect environment while ensuring sustainable livelihoods",
       "Combat HIV/AIDS through awareness, prevention, and care",
     ],
-    image: "/assets/I20.jpeg",
+    image: "/assets/environment.webp",
     imageAlt: "Our mission in action",
     icon: Target,
     color: "teal",
@@ -555,6 +848,118 @@ export const ABOUT_CONTENT = {
       "Your support can help us reach more communities and create lasting change.",
     buttonPrimary: "Donate Now",
     buttonSecondary: "Volunteer With Us",
+  },
+
+  gallery: {
+    label: "Gallery",
+    title: "Moments That",
+    highlight: "Matter",
+    description:
+      "A glimpse into the lives we touch and the communities we serve through our programs.",
+    categories: [
+      "All",
+      "Education",
+      "Healthcare",
+      "Community",
+      "Empowerment",
+      "Environment",
+    ] as GalleryCategories[],
+    images: [
+      {
+        src: "/assets/bulidingcommunity.png",
+        alt: "Community members working together",
+        title: "Building Communities",
+        description:
+          "Local communities coming together to drive their own development.",
+        category: "Community",
+      },
+      {
+        src: "/assets/educationForAll.png",
+        alt: "Children in a classroom",
+        title: "Education For All",
+        description:
+          "Quality education reaching every child, regardless of background.",
+        category: "Education",
+      },
+      {
+        src: "/assets/healthInitiativecamp.png",
+        alt: "Health camp volunteers",
+        title: "Healthcare Access",
+        description:
+          "Taking healthcare services to the doorsteps of hard-to-reach communities.",
+        category: "Healthcare",
+      },
+      {
+        src: "/assets/volunteerWork.png",
+        alt: "Volunteers in action",
+        title: "Volunteer Network",
+        description:
+          "Dedicated volunteers driving change on the ground every day.",
+        category: "Community",
+      },
+      {
+        src: "/assets/I6.jpeg",
+        alt: "Children receiving school kits",
+        title: "Back to School",
+        description:
+          "Distributing books, uniforms and learning materials to students.",
+        category: "Education",
+      },
+      {
+        src: "/assets/I9.jpg",
+        alt: "Medical checkup drive",
+        title: "Medical Outreach",
+        description:
+          "Regular health checkups and awareness sessions for families.",
+        category: "Healthcare",
+      },
+      {
+        src: "/assets/I11.jpg",
+        alt: "Village engagement activity",
+        title: "Community Engagement",
+        description:
+          "Engaging villagers in participatory planning and development.",
+        category: "Community",
+      },
+      {
+        src: "/assets/I12.jpg",
+        alt: "Women self help group meeting",
+        title: "Empowering Women",
+        description:
+          "Self Help Groups building financial independence and confidence.",
+        category: "Empowerment",
+      },
+      {
+        src: "/assets/I13.jpg",
+        alt: "Skill training workshop",
+        title: "Skill Development",
+        description:
+          "Vocational training that opens new livelihood opportunities.",
+        category: "Empowerment",
+      },
+      {
+        src: "/assets/I14.jpg",
+        alt: "Environment plantation drive",
+        title: "Green Initiatives",
+        description:
+          "Plantation drives promoting sustainable environmental practices.",
+        category: "Environment",
+      },
+      {
+        src: "/assets/I15.jpeg",
+        alt: "Field visit by the team",
+        title: "On the Ground",
+        description: "Our team visiting communities to understand real needs.",
+        category: "Community",
+      },
+      {
+        src: "/assets/I16.jpeg",
+        alt: "Celebration with children",
+        title: "Moments of Joy",
+        description: "Celebrating milestones with the children we serve.",
+        category: "Education",
+      },
+    ] as GalleryItem[],
   },
 };
 

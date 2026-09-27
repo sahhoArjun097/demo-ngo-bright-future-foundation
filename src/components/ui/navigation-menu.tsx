@@ -47,11 +47,7 @@ const NavItemComponent = ({
         onClick={handleClick}
       >
         {item.href && !hasChildren ? (
-          <Link
-            to={item.href}
-            className="text-md
-          "
-          >
+          <Link to={item.href} className="text-md">
             {item.title}
           </Link>
         ) : (

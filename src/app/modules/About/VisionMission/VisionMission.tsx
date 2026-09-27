@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { ABOUT_CONTENT } from "../../../../constant/constants";
 import { VisionMissionCard } from "./VisionMissionCard";
-import { ABOUT_CONTENT } from "../../../constant/constants";
 
 const VisionMission = () => {
   const content = ABOUT_CONTENT;

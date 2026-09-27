@@ -5,11 +5,15 @@ import About from "./modules/About/about";
 import Donation from "./modules/Donation/donation";
 import Footer from "../components/layout/Footer/footer";
 import ContactUs from "./modules/ContactUs/contactUs";
-import VisionMission from "./modules/About/VisionMission";
 import FAQSection from "../components/layout/Legal/FAQSection";
 import PrivacyPolicyPage from "../components/layout/Legal/PrivacyPolicyPage";
 import { nav_links } from "../constant/constants";
 import TermsCondition from "../components/layout/Legal/Terms&Condition";
+import VisionMission from "./modules/About/VisionMission/VisionMission";
+import Gallery from "./modules/About/Gallery";
+import Events from "./modules/Events/events";
+import Volunteer from "./modules/Volunteer/volunteer";
+import ComingSoon from "./modules/ComingSoon/comingSoon";
 
 const App = () => {
   return (
@@ -23,6 +27,17 @@ const App = () => {
           path={`${nav_links.vision_mission}`}
           element={<VisionMission />}
         />
+        <Route path={`${nav_links.gallery}`} element={<Gallery />} />
+        <Route path={`${nav_links.events}`} element={<Events />} />
+        <Route path={`${nav_links.volunteer}`} element={<Volunteer />} />
+        <Route
+          path={`${nav_links.profile}`}
+          element={<ComingSoon />}
+        />
+        <Route
+          path={`${nav_links.project}`}
+          element={<ComingSoon />}
+        />
         <Route path={`${nav_links.donation}`} element={<Donation />} />
         <Route path={`${nav_links.contact_us}`} element={<ContactUs />} />
         <Route path={`${nav_links.faqs}`} element={<FAQSection />} />
@@ -34,6 +49,7 @@ const App = () => {
           path={`${nav_links.privacy_policy}`}
           element={<PrivacyPolicyPage />}
         />
+        <Route path="*" element={<ComingSoon />} />
         {/* <Route path="/aboutus" element={< />} /> */}
         {/* <Route path="/donation" element={<Donation />} /> */}
       </Routes>
