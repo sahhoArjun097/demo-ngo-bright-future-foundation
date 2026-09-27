@@ -5,10 +5,10 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 const NavItemComponent = ({
   item,
-  children,
+  className,
 }: {
   item: NavItem;
-  children?: string;
+  className?: string;
 }) => {
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -38,30 +38,36 @@ const NavItemComponent = ({
 
   return (
     <li
-      className="relative"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      className={`${hasChildren ? "relative" : ""} ${className ?? ""}`}
+      onMouseEnter={hasChildren ? handleMouseEnter : undefined}
+      onMouseLeave={hasChildren ? handleMouseLeave : undefined}
     >
-      <div
-        className={`flex items-center gap-1 cursor-pointer hover:text-primary ${children}`}
-        onClick={handleClick}
-      >
-        {item.href && !hasChildren ? (
-          <Link to={item.href} className="text-md">
-            {item.title}
-          </Link>
-        ) : (
+      {hasChildren ? (
+        <div
+          className="flex items-center gap-1 cursor-pointer hover:text-primary py-2"
+          onClick={handleClick}
+          aria-expanded={open}
+        >
           <span className="text-md">{item.title}</span>
-        )}
-
-        {hasChildren &&
-          (open ? <ChevronUp size={16} /> : <ChevronDown size={16} />)}
-      </div>
+          {open ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+        </div>
+      ) : (
+        <Link
+          to={item.href ?? "#"}
+          className="flex items-center gap-1 text-md hover:text-primary cursor-pointer py-2"
+        >
+          {item.title}
+        </Link>
+      )}
 
       {hasChildren && open && (
-        <ul className="absolute top-full left-0 mt-2 w-64 bg-white border rounded-xl shadow-lg z-50">
+        <ul className="grid md:absolute md:top-full md:left-0 md:mt-1 md:w-56 md:bg-white md:border md:rounded-xl md:shadow-lg md:z-50">
           {item.children!.map((child, idx) => (
-            <NavItemComponent key={idx} item={child} children="p-4 border-b " />
+            <NavItemComponent
+              key={idx}
+              item={child}
+              className="px-4 rounded-md hover:bg-slate-50 last:border-b-0"
+            />
           ))}
         </ul>
       )}

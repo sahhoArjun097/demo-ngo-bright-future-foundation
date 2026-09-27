@@ -14,11 +14,13 @@ import Gallery from "./modules/About/Gallery";
 import Events from "./modules/Events/events";
 import Volunteer from "./modules/Volunteer/volunteer";
 import ComingSoon from "./modules/ComingSoon/comingSoon";
+import GoogleAnalytics from "../components/Analytics/GoogleAnalytics";
 
 const App = () => {
   return (
     <>
       <Navbar />
+      <GoogleAnalytics />
 
       <Routes>
         <Route path="/" element={<Home />} />
